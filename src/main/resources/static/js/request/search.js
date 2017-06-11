@@ -1,3 +1,6 @@
+/**
+ * Created by yuminchen on 2017/6/11.
+ */
 function search() {
     $.ajax({
         type: "POST",
@@ -17,15 +20,13 @@ function search() {
 <!-- 加载LIST中元素到界面 -->
 function loadData(list) {
     $("#item-container").empty();
-    var movie = list[0];
 
-    for(var i = 0; i < list.length; i++){
-        console.log(i);
-    }
     var html = "";
-    html += analyse(movie);
+    for (var i = 0; i < list.length; i++) {
+        var movie = list[0];
+        html += analyse(movie);
+    }
 
     $("#item-container").append(html);
-}/**
- * Created by yuminchen on 2017/6/11.
- */
+}
+
