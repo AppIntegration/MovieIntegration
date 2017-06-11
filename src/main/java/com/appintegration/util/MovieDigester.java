@@ -15,7 +15,7 @@ public class MovieDigester {
 
     public MovieXMLCache getMovieCache() {
         // 定义要解析的 XML 的路径，并初始化工具类
-        File input = new File("/Users/kylin/Desktop/Study/homework/Teamwork/第二次作业/MovieData/src/main/resources/data/new_table.xml");
+        File input = new File("/Users/yuminchen/Documents/mytech/workspace(java)/MovieIntegration/data/new_table.xml");
 
         Digester digester = new Digester();
         digester.setValidating(false);
@@ -60,5 +60,9 @@ public class MovieDigester {
             e.printStackTrace();
         }
         return vc;
+    }
+
+    public static void main(String[] args) {
+        new MovieDigester().getMovieCache();
     }
 }
