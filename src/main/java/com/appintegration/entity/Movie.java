@@ -36,6 +36,10 @@ public class Movie {
     private String mediumImage;
     private String bigImage;
 
+    public Movie(){
+
+    }
+
     public Movie(MovieXML movieXML) {
         this.imdbId = movieXML.getImdbId();
         this.doubanId = movieXML.getDoubanId();

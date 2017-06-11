@@ -5,6 +5,7 @@ import com.appintegration.service.MovieSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -19,22 +20,18 @@ import java.util.List;
 @RequestMapping("/movie")
 public class MovieController {
 
-    private final MovieSearch movieSearch;
-
     @Autowired
-    public MovieController(MovieSearch movieSearch) {
-        this.movieSearch = movieSearch;
-    }
+    private MovieSearch movieSearch;
 
     @RequestMapping("/index")
-    public String login(){
+    public String login() {
         return "index";
     }
 
 
-    @RequestMapping("/search")
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public List<Movie> searchMovies(String name){
-        return movieSearch.searchByCname(name);
+    public List<Movie> searchMovies(String key) {
+        return movieSearch.searchByCname(key);
     }
 }
