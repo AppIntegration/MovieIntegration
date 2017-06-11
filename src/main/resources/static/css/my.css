@@ -7,3 +7,12 @@
 	height: 22px;
 	margin-right: 5px;
 }
+
+#tip {
+	font-weight: bold;
+	position: absolute;
+	top: 33%;
+	left: 50%;
+	display: none;
+	z-index: 9999;
+}

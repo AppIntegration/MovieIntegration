@@ -2,9 +2,11 @@ package com.appintegration.util;
 
 import com.appintegration.po.MovieXMLCache;
 import org.apache.commons.digester.Digester;
+import org.springframework.util.ResourceUtils;
 import org.xml.sax.SAXException;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -14,11 +16,15 @@ import java.io.IOException;
 public class MovieDigester {
 
 //    private String xmlPath = "/Users/kylin/Desktop/Study/homework/Teamwork/第二次作业/MovieData/src/main/java/util/allfilms.xml";
-    private String xmlPath = "E:\\应用集成\\MovieIntegration\\src\\main\\java\\com\\appintegration\\util\\allfilms.xml";
 
     public MovieXMLCache getMovieCache() {
         // 定义要解析的 XML 的路径，并初始化工具类
-        File input = new File(xmlPath);
+        File input = null;
+        try {
+            input = ResourceUtils.getFile("classpath:data/allfilms.xml");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         Digester digester = new Digester();
         digester.setValidating(false);
