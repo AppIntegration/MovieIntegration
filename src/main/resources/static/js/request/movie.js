@@ -12,18 +12,46 @@ function analyse(item) {
     html += '<div class="feature-area">';
     html += '<div class="container">';
 
-    html += title("加勒比海盗");
-    html += image("/img/banner/timg.jpeg");
+    html += title(item.ename);
+    html += image(item.mediumImage);
+    // html += image("/img/banner/timg.jpeg");
+
+    html += common(item);
 
     html += '<div class="row" style="margin-top: 20px">';
-    html += frame(DOUBAN_LOGO, DOUBAN, "导演： 戈尔·维宾斯基", "片长：143分钟", "类型：动作 / 奇幻 / 冒险", "评分：8.6");
-    html += frame(TIME_LOGO, TIME, "导演： 戈尔·维宾斯基", "片长：143分钟", "类型：动作/冒险/奇幻", "评分：8.3");
-    html += frame(IMDB_LOGO, IMDB, "导演： Gore Verbinski", "片长：2h 23min ", "类型：Action, Adventure, Fantasy", "评分：8.0");
+    html += dframe("豆瓣编号" + item.doubanId, "豆瓣评分" + item.doubanScore, "豆瓣人数" + item.doubanVote);
+    html += tframe("时光评分" + item.timeScore, "时光人数" + item.timeVote);
+    html += iframe("IMDB编号" + item.imdbId, "IMDB评分" + item.imdbScore, "IMDB人数" + item.imdbVote);
     html += '</div>';
 
     html += '</div>';
     html += '</div>';
 
+    return html;
+}
+<!-- 通用部分 -->
+function common(item) {
+    var html = "";
+    if (item.genres != null) {
+        html += '<div>';
+        html += "类型：" + item.genres;
+        html += '</div>';
+    }
+    if (item.casts != null) {
+        html += '<div>';
+        html += "卡斯： " + item.casts;
+        html += '</div>';
+    }
+    if (item.directors != null) {
+        html += '<div>';
+        html += "导演： " + item.directors;
+        html += '</div>';
+    }
+    if (item.writers != null) {
+        html += '<div>';
+        html += "编剧： " + item.writers;
+        html += '</div>';
+    }
     return html;
 }
 
@@ -59,17 +87,49 @@ function image(url) {
     return html;
 }
 
-<!-- 信息框部分 -->
-function frame(url, source, director, length, type, score) {
+<!-- 豆瓣信息框部分 -->
+function dframe(id, doubanScore, doubanVote) {
     var html = "";
     html += '<div class="col-md-4 col-xs-12">';
     html += '<ul class="list-group">';
 
-    html += '<li class="list-group-item website">' + '<img src="' + url + '" class="website_logo"/>' + source + '</li>';
-    html += '<li class="list-group-item">' + director + '</li>';
-    html += '<li class="list-group-item">' + length + '</li>';
-    html += '<li class="list-group-item">' + type + '</li>';
-    html += '<li class="list-group-item">' + score + '</li>';
+    html += '<li class="list-group-item website">' + '<img src="' + DOUBAN_LOGO + '" class="website_logo"/>' + DOUBAN + '</li>';
+    html += '<li class="list-group-item">' + id + '</li>';
+    html += '<li class="list-group-item">' + doubanScore + '</li>';
+    html += '<li class="list-group-item">' + doubanVote + '</li>';
+
+    html += '</ul>';
+    html += '</div>';
+
+    return html;
+}
+
+<!-- 时光信息框部分 -->
+function tframe(timeScore, timeVote) {
+    var html = "";
+    html += '<div class="col-md-4 col-xs-12">';
+    html += '<ul class="list-group">';
+
+    html += '<li class="list-group-item website">' + '<img src="' + TIME_LOGO + '" class="website_logo"/>' + TIME + '</li>';
+    html += '<li class="list-group-item">' + timeScore + '</li>';
+    html += '<li class="list-group-item">' + timeVote + '</li>';
+
+    html += '</ul>';
+    html += '</div>';
+
+    return html;
+}
+
+<!-- IMDB信息框部分 -->
+function iframe(id, imdbScore, imdbVote) {
+    var html = "";
+    html += '<div class="col-md-4 col-xs-12">';
+    html += '<ul class="list-group">';
+
+    html += '<li class="list-group-item website">' + '<img src="' + IMDB_LOGO + '" class="website_logo"/>' + IMDB + '</li>';
+    html += '<li class="list-group-item">' + id, +'</li>';
+    html += '<li class="list-group-item">' + imdbScore + '</li>';
+    html += '<li class="list-group-item">' + imdbVote + '</li>';
 
     html += '</ul>';
     html += '</div>';

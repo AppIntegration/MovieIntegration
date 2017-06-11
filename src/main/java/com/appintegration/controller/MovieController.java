@@ -1,7 +1,7 @@
 package com.appintegration.controller;
 
 import com.appintegration.entity.Movie;
-import com.appintegration.service.MovieSearch;
+import com.appintegration.bl.MovieSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +32,6 @@ public class MovieController {
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
     public List<Movie> searchMovies(String key) {
-        return movieSearch.searchByCname(key);
+        return movieSearch.search(key);
     }
 }

@@ -1,4 +1,4 @@
-package com.appintegration.entity;
+package com.appintegration.po;
 
 /**
  * Created by kylin on 11/06/2017.

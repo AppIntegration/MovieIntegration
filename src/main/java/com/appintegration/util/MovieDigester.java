@@ -1,6 +1,6 @@
 package com.appintegration.util;
 
-import com.appintegration.entity.MovieXMLCache;
+import com.appintegration.po.MovieXMLCache;
 import org.apache.commons.digester.Digester;
 import org.xml.sax.SAXException;
 
@@ -13,18 +13,21 @@ import java.io.IOException;
  */
 public class MovieDigester {
 
+//    private String xmlPath = "/Users/kylin/Desktop/Study/homework/Teamwork/第二次作业/MovieData/src/main/java/util/allfilms.xml";
+    private String xmlPath = "E:\\应用集成\\MovieIntegration\\src\\main\\java\\com\\appintegration\\util\\allfilms.xml";
+
     public MovieXMLCache getMovieCache() {
         // 定义要解析的 XML 的路径，并初始化工具类
-        File input = new File("/Users/yuminchen/Documents/mytech/workspace(java)/MovieIntegration/data/new_table.xml");
+        File input = new File(xmlPath);
 
         Digester digester = new Digester();
         digester.setValidating(false);
 
         // 如果碰到了 <books> 这个标签，应该初始化 test.myBean.Books 这个 JavaBean 并填装相关内容
-        digester.addObjectCreate("RECORDS", "po.MovieXMLCache");
+        digester.addObjectCreate("RECORDS", "com.appintegration.po.MovieXMLCache");
 
         // 如果碰到了 <books/book> 这个标签，同上初始化 test.myBean.Book 这个 JavaBean
-        digester.addObjectCreate("RECORDS/RECORD", "po.MovieXML");
+        digester.addObjectCreate("RECORDS/RECORD", "com.appintegration.po.MovieXML");
 
         // 设置对象属性,与xml文件对应,不设置则是默认
         digester.addBeanPropertySetter("RECORDS/RECORD/imdbId", "imdbId");
@@ -60,9 +63,5 @@ public class MovieDigester {
             e.printStackTrace();
         }
         return vc;
-    }
-
-    public static void main(String[] args) {
-        new MovieDigester().getMovieCache();
     }
 }

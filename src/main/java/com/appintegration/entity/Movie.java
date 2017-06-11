@@ -1,5 +1,7 @@
 package com.appintegration.entity;
 
+import com.appintegration.po.MovieXML;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,10 +38,6 @@ public class Movie {
     private String mediumImage;
     private String bigImage;
 
-    public Movie(){
-
-    }
-
     public Movie(MovieXML movieXML) {
         this.imdbId = movieXML.getImdbId();
         this.doubanId = movieXML.getDoubanId();
@@ -67,6 +65,9 @@ public class Movie {
     }
 
     private List<String> convert(String genres) {
+        if(genres == null || genres.length() <= 1){
+            return new ArrayList<String>();
+        }
         String[] splits = genres.split(";");
 
         List<String> result = new ArrayList<String>();

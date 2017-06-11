@@ -23,7 +23,7 @@ function loadData(list) {
 
     var html = "";
     for (var i = 0; i < list.length; i++) {
-        var movie = list[0];
+        var movie = list[i];
         html += analyse(movie);
     }
 
