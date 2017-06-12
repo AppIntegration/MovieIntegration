@@ -39,7 +39,7 @@ function common(item) {
     }
     if (item.casts != null) {
         html += '<div>';
-        html += "卡斯： " + item.casts;
+        html += "演员： " + item.casts;
         html += '</div>';
     }
     if (item.directors != null) {
