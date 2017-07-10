@@ -1,4 +1,6 @@
-package com.appintegration.recommend;
+package com.appintegration.bl.impl;
+
+import com.appintegration.bl.RecommendService;
 
 import java.util.List;
 import java.util.Map;

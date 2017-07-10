@@ -1,4 +1,4 @@
-package com.appintegration.recommend;
+package com.appintegration.bl.impl;
 
 
 import com.appintegration.dataservice.FilmSearch;
