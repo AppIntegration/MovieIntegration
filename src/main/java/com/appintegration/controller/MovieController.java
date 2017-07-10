@@ -28,6 +28,11 @@ public class MovieController {
         return "index";
     }
 
+    @RequestMapping("/recommend")
+    public String recommend() {
+        return "recommend";
+    }
+
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
