@@ -22,7 +22,7 @@ function loadData(list) {
     $("#item-container").empty();
 
     var html = "";
-    if(list.length == 0){
+    if (list.length == 0) {
         showInfo("2016年未上映该电影");
         return;
     }
@@ -48,6 +48,6 @@ function showFailure(msg) {
 
 function showTip(tip, type) {
     var $tip = $('#tip');
-    $tip.attr('class', 'alert alert-' + type).text(tip).css('margin-left', - $tip.outerWidth()/2);
+    $tip.attr('class', 'alert alert-' + type).text(tip).css('margin-left', -$tip.outerWidth() / 2);
     $tip.fadeIn(300).delay(700).fadeOut(300);
 }

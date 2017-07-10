@@ -28,6 +28,17 @@ public class MovieController {
         return "index";
     }
 
+    @RequestMapping("/recommend")
+    public String recommend() {
+        return "recommend";
+    }
+
+    @RequestMapping(value = "/get-recommend", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Movie> getRecommend(String username, int number) {
+        // TODO 先随便造个数据
+        return movieSearch.search("汉克斯");
+    }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
