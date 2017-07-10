@@ -1,6 +1,6 @@
 package com.appintegration.dataservice;
 
-import com.appintegration.data.DbStore;
+import com.appintegration.data.*;
 
 import java.util.Map;
 

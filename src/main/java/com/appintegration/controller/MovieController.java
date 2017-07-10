@@ -39,10 +39,4 @@ public class MovieController {
         // TODO 先随便造个数据
         return movieSearch.search("汉克斯");
     }
-
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    @ResponseBody
-    public List<Movie> searchMovies(String key) {
-        return movieSearch.search(key);
-    }
 }
