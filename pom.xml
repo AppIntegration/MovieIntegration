@@ -20,11 +20,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-            <version>3.3.0</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -52,8 +48,8 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>3.0-alpha-1</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0-b06</version>
         </dependency>
 
         <dependency>

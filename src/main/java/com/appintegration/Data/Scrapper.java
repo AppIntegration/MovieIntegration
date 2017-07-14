@@ -28,7 +28,7 @@ public class Scrapper {
     private DbStore store;
     private int countPerTime;
 
-    private DBUtil dbUtil;
+//    private DBUtil dbUtil;
 
     private UrlRequestService requestService;
 
@@ -58,7 +58,7 @@ public class Scrapper {
                 // 调用豆瓣API获取电影列表的json
                 String movieListJson = requestService.getString(url);
                 // 向数据库存储数据
-                dbUtil.saveListOfMovie(movieListJson);
+//                dbUtil.saveListOfMovie(movieListJson);
             } catch (IOException e) {
                 e.printStackTrace();
             }

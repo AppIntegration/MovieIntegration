@@ -191,7 +191,7 @@ public class Recommender {
 
     public List<String> getRecommendFilms(String username,int num){
 //        Recommender recommender = new Recommender();
-        return filmRecommend("103214078", this::simPearson, 2);
+        return filmRecommend(username, this::simPearson, num);
     }
 
     interface SimilarityCalculator{
