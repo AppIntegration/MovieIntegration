@@ -1,5 +1,6 @@
 package com.appintegration.bl.impl;
 
+import com.appintegration.Recommend.Recommender;
 import com.appintegration.dataservice.MovieDataService;
 import com.appintegration.entity.Movie;
 import com.appintegration.bl.MovieSearch;
@@ -32,5 +33,13 @@ public class MovieSearchImpl implements MovieSearch{
     @Override
     public List<Movie> search(String keyword) {
         return movieDataService.search(keyword);
+    }
+
+    @Override
+    public List<Movie> getRecommend(String username, int num) {
+        Recommender rec=new Recommender();
+        List<String> ids=rec.getRecommendFilms("user1",6);
+        List<Movie> list=movieDataService.getByIds(ids);
+        return list;
     }
 }

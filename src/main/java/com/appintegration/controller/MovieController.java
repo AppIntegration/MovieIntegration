@@ -39,4 +39,12 @@ public class MovieController {
     public List<Movie> searchMovies(String key) {
         return movieSearch.search(key);
     }
+
+
+    @RequestMapping(value = "/get-recommend", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Movie> getRecommend(String username, int number) {
+        // TODO 先随便造个数据
+        return movieSearch.getRecommend(username,number);
+    }
 }

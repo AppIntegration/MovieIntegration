@@ -42,6 +42,19 @@ public class MovieDataXmlImpl implements MovieDataService {
         return this.convert(movieXMLList);
     }
 
+    @Override
+    public List<Movie> getByIds(List ids) {
+        List<MovieXML> movieXMLList = new ArrayList<>();
+        for (Object object:ids){
+            String id = (String) object;
+            MovieXML xml = movieXMLCache.searchById(id);
+            if (xml!=null){
+                movieXMLList.add(xml);
+            }
+        }
+        return this.convert(movieXMLList);
+    }
+
     private List<Movie> convert(List<MovieXML> movieXMLList) {
         List<Movie> result = new ArrayList<Movie>();
         for (MovieXML movieXML:movieXMLList){

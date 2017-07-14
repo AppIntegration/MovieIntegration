@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>Recommend</title>
+    <title>Home</title>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <meta name="keywords" content=""/>
@@ -41,43 +41,26 @@
             <div class="row">
                 <div class="col-md-6 col-sm-12 hidden-xs">
                     <div class="header-top-left">
-                        <div class="welcome-msg">
-                            <span class="default-msg hidden-xs">Welcome !</span>
-                            <!-- <span class="phone">Call support free: <span class="number">01234-567890</span></span> -->
-                        </div>
+                        <ul class="header-links hidden-xs">
+                            <li><a href="index.html">首页</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12 col-sm-12">
                     <div class="header-top-right">
                         <ul class="header-links hidden-xs">
-                            <li><a class="login" href="#">Login</a></li>
+                            <li><a href="recommend.html">为您推荐</a></li>
                         </ul>
 
+                        <ul class="header-links hidden-xs">
+                            <li><a class="recommend" href="#">登录</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="header-middle">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-sm-12 col-xs-8">
-                    <div class="logo">
-                        <!-- <a href="index.html"><img src="img/logo.png" alt="" /></a> -->
-                    </div>
-                </div>
-                <div class="col-md-5 col-sm-6 hidden-xs">
-                    <div class="search-box">
-                        <input id="search-key" class="form-control search-form" type="text" name="key"
-                               placeholder="Search movie here"/>
-                        <button class="search-button" value="Search" type="submit" onclick="search()">
-                            <i class="fa fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </header>
 <!-- header-end -->
 <!-- slider-start -->
@@ -124,6 +107,9 @@
 <!-- banner-area-start -->
 
 <div class="banner-area hidden-sm hidden-xs">
+    <div class="row" align="middle">
+        <h2>为您推荐 6 部电影</h2>
+    </div>
     <div id="recommend-container" class="container">
 
     </div>
@@ -169,6 +155,8 @@
 <script src="/js/bootstrap.min.js"></script>
 <!-- owl.carousel js -->
 <script src="/js/owl.carousel.min.js"></script>
+<!-- 2.1.4 js -->
+<script src="/js/jquery-2.1.4.min.js"></script>
 <!-- meanmenu js -->
 <script src="js/jquery.meanmenu.js"></script>
 <!-- countdown js -->
@@ -183,14 +171,23 @@
 <script src="/js/plugins.js"></script>
 <!-- main js -->
 <script src="/js/main.js"></script>
-<!-- 2.1.4 js -->
-<script src="/js/jquery-2.1.4.min.js"></script>
+
+
+
+
+
+
 <!-- movie js -->
 <script src="/js/request/movie.js"></script>
-
+<script src="/js/request/recommend.js"></script>
 <script src="/js/request/search.js"></script>
+
+<script>
+    $(document).ready(function() {
+        getRecommend();
+    });
+</script>
 
 </body>
 
 </html>
-

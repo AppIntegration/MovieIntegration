@@ -3,11 +3,14 @@
  */
 function getRecommend() {
     $.ajax({
-        type: "GET",
-        url: "/movie/getrecommend",
-
+        type: "POST",
+        url: "/movie/get-recommend",
+        data: {
+            username: "user1",
+            number: 6
+        },
         success: function (data) {
-            loadRecommendData(data);
+            loadRecommend(data);
         },
         error: function () {
             alert("服务器出现问题，请稍微再试！");
@@ -15,13 +18,12 @@ function getRecommend() {
     });
 }
 
-function loadRecommendData(list) {
-    // recommend-container
+function loadRecommend(list){
     $("#recommend-container").empty();
 
     var html = "";
-    if(list.length == 0){
-        showInfo("没有可以推荐的电影，请给点评更多电影以让我们更加了解您~");
+    if (list.length == 0) {
+        showInfo("暂无电影推荐，请为更多的电影打分~");
         return;
     }
     for (var i = 0; i < list.length; i++) {
@@ -30,5 +32,4 @@ function loadRecommendData(list) {
     }
 
     $("#recommend-container").append(html);
-
 }

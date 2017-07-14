@@ -33,4 +33,8 @@ public interface MovieSearch {
      * @return
      */
     List<Movie> search(String keyword);
+
+
+
+    List<Movie> getRecommend(String username,int num);
 }

@@ -34,4 +34,11 @@ public interface MovieDataService {
      * @return
      */
     List<Movie> search(String keyword);
+
+    /**
+     *
+     * @param ids
+     * @return
+     */
+    List<Movie> getByIds(List ids);
 }

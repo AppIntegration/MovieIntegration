@@ -16,9 +16,9 @@ public class DbStore {
         // URL指向要访问的数据库名scutcs
         String url = "jdbc:mysql://127.0.0.1:3306/film";
         // MySQL配置时的用户名
-        String user = "film";
+        String user = "root";
         // Java连接MySQL配置时的密码
-        String password = "123456";
+        String password = "130014";
 
         // 加载驱动程序
         try {

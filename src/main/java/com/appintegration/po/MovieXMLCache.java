@@ -71,5 +71,13 @@ public class MovieXMLCache {
         return result;
     }
 
+    public MovieXML searchById(String id) {
+        for(MovieXML movieXML:this.movieXMLList){
+            if(id.equalsIgnoreCase(movieXML.getDoubanId())){
+                return movieXML;
+            }
+        }
+        return null;
+    }
 }
 
